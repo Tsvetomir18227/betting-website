@@ -1,0 +1,492 @@
+
+
+* {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  overflow-x: hidden;
+ 
+}
+
+
+body {
+  background-color: white;
+}
+
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+.navbar-nav {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.navbar-brand {
+  font-size: 22px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.example {
+  background-image: linear-gradient(green, black);
+  letter-spacing: 1px;
+
+}
+
+.btn {
+  background-color: yellow;
+}
+
+.nav-item-1 {
+  margin-left: 7px;
+}
+
+
+.column {
+  width: 6%;
+}
+
+
+
+.sizeOfDiv {
+  width: 25%;
+}
+
+.divstyle {
+  text-align: center;
+}
+
+h4.nameOfDay {
+  font-size: 1.5rem;
+  /* adjust font size to your preference */
+  font-weight: bold;
+  text-decoration: underline;
+
+}
+
+.borderOfDiv {
+  border-style: none groove groove groove;
+  border-collapse: separate;
+  border-radius: 10px;
+
+}
+
+/* .border{
+    width: 100%;
+    border: 1px;
+   
+   
+} */
+.b {
+  border: 1px;
+}
+
+.selectors {
+  width: 100%;
+  margin-left: 1.5%;
+  margin-right: 1%;
+}
+
+.forScore {
+  border: 1px;
+}
+
+.centerIt {
+  text-align: center;
+  align-items: center;
+}
+
+
+
+.dropdown-item.active {
+  background-color: #dc3545;
+  color: white;
+}
+
+
+
+
+.table-container {
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  border-style: none groove groove groove;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 auto;
+  /* outline: 2px solid black; */
+}
+
+th {
+  background-color: #f2f2f2;
+  color: #444;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+  vertical-align: middle;
+}
+
+td {
+  font-size: 15px;
+  text-align: center;
+  padding: 8px;
+  vertical-align: middle;
+  
+}
+
+
+
+
+
+/* tr:nth-child(even) {
+    background-color: #f9f9f9;
+  } */
+
+
+tr.hoverColorYellow:hover {
+  background-color:  	#FFEA00;
+}
+
+
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+a.btn-logout:hover button {
+  color: white;
+}
+
+
+.button {
+  width: 40px;
+  height: 40px;
+  margin: 4px;
+  border-radius: 50%;
+  background-color: #eee;
+  color: #444;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button1 {
+  width: 40px;
+  height: 40px;
+  margin: 4px;
+  border-radius: 50%;
+  background-color: #eee;
+  color: #444;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button1.active{
+  background-color: #444;
+  color: #fff;
+}
+
+
+.button.active {
+  background-color: #444;
+  color: #fff;
+} 
+/* .btn.active {
+  background-color: #444;
+  color: #fff;
+} */
+
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  background-color: #fff;
+  color: #333;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.dropdown-toggle {
+  background-color: yellow;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: -15px;
+  z-index: 1;
+  display: none;
+  min-width: 150px;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+}
+
+.dropdown-item {
+  display: block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #333;
+  border: none;
+  background-color: transparent;
+  text-align: center;
+  transition: all 0.3s ease;
+  min-width: 150px;
+
+}
+
+.dropdown-item:hover {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+#deposit-dialog {
+  width: 400px;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+#deposit-dialog form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#deposit-dialog input {
+  margin-bottom: 10px;
+}
+
+#deposit-dialog button {
+  margin-top: 10px;
+}
+
+
+
+.submit-button {
+  border-radius: 50px;
+  background-color: #eee;
+  color: #444;
+  font-weight: bold;
+ 
+}
+
+.submit-button:hover {
+  background-color: #444;
+  color: #fff;
+}
+.regLogButtons{
+  border-radius: 50px;
+  background-color: yellow;
+  color: #444;
+  font-weight: bold;
+}
+.dtbutton{
+  border-radius: 50px;
+  background-color: yellow;
+  color: #444;
+  font-weight: bold;
+ 
+}
+
+.dtbutton:hover{
+  background-color: #444;
+  color: #fff;
+}
+
+
+
+.dropdown-menu button:hover {
+  background-color: gray;
+  color: white;
+}
+.dropdown-toggle.selectors:focus,
+.dropdown-toggle.selectors:hover,
+.dropdown-toggle.selectors:active {
+    background-color: gray;
+    color: white;
+}
+.dropdown-item.selectors:focus,
+.dropdown-item.selectors:hover,
+.dropdown-item.selectors:active {
+    background-color: gray;
+    color: white;
+}
+
+
+/* For screens smaller than 576px */
+/* For screens smaller than 576px */
+@media (max-width: 575.98px) {
+  /* Adjust the width of the table header cells */
+  table th {
+    width: 100%;
+  }
+}
+
+/* For screens between 576px and 991.98px */
+@media (min-width: 576px) and (max-width: 991.98px) {
+  /* Adjust the width of the table header cells */
+  table th {
+    width: 50%;
+  }
+}
+
+@media (min-width: 751px) and (max-width: 974px) {
+  /* Adjust the width of the table header cells */
+  table th {
+    width: 100vw;
+    display: auto;
+  }
+  
+}
+
+ /* 751 973 */
+
+/* For screens larger than 992px */
+@media (min-width: 992px) {
+  /* Adjust the width of the table header cells */
+  table th {
+    width: auto;
+  }
+  
+  /* Set maximum width for the table */
+  .table-responsive {
+    max-width: 100%;
+  }
+}
+
+/* For all screen sizes */
+@media all {
+  /* Center "Мои залози" */
+  .nav-item-1 {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Add margin to "Welcome" */
+  .nav-item-1 .mr-2 {
+    margin-right: 10px;
+  }
+}
+
+
+@media screen and (max-width: 1100px) {
+  .dtbutton {
+    width: 100%;
+    margin-bottom: 2px;
+    font-size: 14px;
+  }
+  .btn-group {
+    display: block;
+  }
+}
+
+@media (min-width: 1101px) {
+  .dtbutton {
+    font-size: 1.2rem;
+    margin-bottom: 3px;
+  }
+
+  .fw-bold {
+    font-weight: bold;
+  }
+
+  .fs-5 {
+    font-size: 1.2rem;
+  }
+
+  .border {
+    border-width: 3px !important;
+  }
+
+  .p-3 {
+    padding: 1.5rem !important;
+  }
+
+  .rounded {
+    border-radius: 1.5rem !important;
+  }
+}
+
+@media (min-width:768px) and (max-width: 866px){
+  .dtbutton {
+    width: 100%;
+    margin-bottom: 2px;
+    font-size: 11px;
+  }
+  .btn-group {
+    display: block;
+  }
+}
+
+@media (min-width:768px) and (max-width: 1005px){
+  .spanSize{
+    font-size:12px;
+  }
+}
+
+@media (min-width:768px) and (max-width: 848px){
+  .textSize{
+    font-size:10px;
+  }
+  .regSize{
+    font-size:9px;
+  }
+}
+
+@media (min-width:849px) and (max-width: 1180px){
+  .textSize{
+    font-size:13px;
+  }
+  .regSize{
+    font-size:11px;
+  }
+}
+@media (min-width:849px) and (max-width: 852px){
+  .textSize{
+    font-size:12px;
+  }
+
+}
+@media (min-width:1181px) and (max-width: 1399px){
+  .regSize{
+    font-size:16px;
+  }
+}
+@media (min-width:1400px) and (max-width: 1738px){
+  .regSize{
+    font-size:19px;
+  }
+  
+}
