@@ -5,7 +5,7 @@ The website is my first big project which is for betting simulated football matc
 Home page of admin user (the same if you click on "Events today" tab):
 ![Screenshot_1](https://user-images.githubusercontent.com/95773359/236321746-3a73414a-a8ac-48a8-892f-cda6c0dba977.png)
 
-"My bets" tab.
+"My bets" tab:
 ![image](https://user-images.githubusercontent.com/95773359/236321990-ed19abd5-26d5-484c-99a9-bed67430ae6b.png)
 
 "Previuos matches" tab:
