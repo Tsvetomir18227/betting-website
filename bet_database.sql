@@ -14,7 +14,25 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
--- Dumping data for table bet.bets: ~8 rows (approximately)
+
+-- Dumping database structure for bet
+CREATE DATABASE IF NOT EXISTS `bet` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+USE `bet`;
+
+-- Dumping structure for table bet.bets
+CREATE TABLE IF NOT EXISTS `bets` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `team1` varchar(50) NOT NULL DEFAULT '0',
+  `team2` varchar(50) NOT NULL DEFAULT '0',
+  `winner` int(11) DEFAULT NULL,
+  `bet_amount` int(11) DEFAULT NULL,
+  `userid` int(11) NOT NULL DEFAULT 0,
+  `matchid` int(11) DEFAULT NULL,
+  `betDate` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=402 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table bet.bets: ~14 rows (approximately)
 INSERT INTO `bets` (`id`, `team1`, `team2`, `winner`, `bet_amount`, `userid`, `matchid`, `betDate`) VALUES
 	(388, 'Манчестър Сити', 'Челси', 2, 20, 8, 300, '2023-04-24'),
 	(389, 'Ливърпул', 'Манчестър Юнайтед', 1, 10, 8, 301, '2023-04-24'),
@@ -27,7 +45,25 @@ INSERT INTO `bets` (`id`, `team1`, `team2`, `winner`, `bet_amount`, `userid`, `m
 	(396, 'Кристъл Палас', 'Лестър', 2, 10, 8, 313, '2023-04-26'),
 	(397, 'Виляреал', 'Севиля', 2, 20, 27, 314, '2023-04-27'),
 	(398, 'Борнемут', 'Уест Хам', 1, 10, 27, 316, '2023-04-27'),
-	(399, 'Виляреал', 'Севиля', 2, 30, 19, 314, '2023-04-27');
+	(399, 'Виляреал', 'Севиля', 2, 30, 19, 314, '2023-04-27'),
+	(400, 'Ейбар', 'Гранада', 0, 10, 8, 317, '2023-05-20'),
+	(401, 'Нотингам Форест', 'Уулвърхямптън', 2, 20, 28, 319, '2023-05-22');
+
+-- Dumping structure for table bet.championship
+CREATE TABLE IF NOT EXISTS `championship` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `team` varchar(255) DEFAULT NULL,
+  `matches` int(11) DEFAULT 0,
+  `wins` int(11) DEFAULT 0,
+  `ties` int(11) DEFAULT 0,
+  `loses` int(11) DEFAULT 0,
+  `gd` int(11) DEFAULT 0,
+  `g` int(11) DEFAULT 0,
+  `d` int(11) DEFAULT 0,
+  `points` int(11) DEFAULT 0,
+  `nextMatches` int(11) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table bet.championship: ~24 rows (approximately)
 INSERT INTO `championship` (`id`, `team`, `matches`, `wins`, `ties`, `loses`, `gd`, `g`, `d`, `points`, `nextMatches`) VALUES
@@ -56,6 +92,14 @@ INSERT INTO `championship` (`id`, `team`, `matches`, `wins`, `ties`, `loses`, `g
 	(23, 'Блекпул', 0, 0, 0, 0, 0, 0, 0, 0, 0),
 	(24, 'Уиган ', 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
+-- Dumping structure for table bet.countries
+CREATE TABLE IF NOT EXISTS `countries` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `championship` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 -- Dumping data for table bet.countries: ~6 rows (approximately)
 INSERT INTO `countries` (`id`, `name`, `championship`) VALUES
 	(1, 'Англия', 'Премиър Лийг'),
@@ -65,7 +109,23 @@ INSERT INTO `countries` (`id`, `name`, `championship`) VALUES
 	(5, 'Италия', 'Сериа А'),
 	(6, 'Италия', 'Сериа Б');
 
--- Dumping data for table bet.la_liga: ~17 rows (approximately)
+-- Dumping structure for table bet.la_liga
+CREATE TABLE IF NOT EXISTS `la_liga` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `team` varchar(255) DEFAULT NULL,
+  `matches` int(11) DEFAULT 0,
+  `wins` int(11) DEFAULT 0,
+  `ties` int(11) DEFAULT 0,
+  `loses` int(11) DEFAULT 0,
+  `gd` int(11) DEFAULT 0,
+  `g` int(11) DEFAULT 0,
+  `d` int(11) DEFAULT 0,
+  `points` int(11) DEFAULT 0,
+  `nextMatches` int(11) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table bet.la_liga: ~20 rows (approximately)
 INSERT INTO `la_liga` (`id`, `team`, `matches`, `wins`, `ties`, `loses`, `gd`, `g`, `d`, `points`, `nextMatches`) VALUES
 	(1, 'Барселона', 1, 1, 0, 0, 2, 3, 1, 3, 0),
 	(2, 'Реал Мадрид', 1, 0, 0, 1, -2, 1, 3, 0, 0),
@@ -88,10 +148,26 @@ INSERT INTO `la_liga` (`id`, `team`, `matches`, `wins`, `ties`, `loses`, `gd`, `
 	(19, 'Еспаньол', 0, 0, 0, 0, 0, 0, 0, 0, 0),
 	(20, 'Елче', 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
+-- Dumping structure for table bet.la_liga_2
+CREATE TABLE IF NOT EXISTS `la_liga_2` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `team` varchar(255) DEFAULT NULL,
+  `matches` int(11) DEFAULT 0,
+  `wins` int(11) DEFAULT 0,
+  `ties` int(11) DEFAULT 0,
+  `loses` int(11) DEFAULT 0,
+  `gd` int(11) DEFAULT 0,
+  `g` int(11) DEFAULT 0,
+  `d` int(11) DEFAULT 0,
+  `points` int(11) DEFAULT 0,
+  `nextMatches` int(11) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 -- Dumping data for table bet.la_liga_2: ~22 rows (approximately)
 INSERT INTO `la_liga_2` (`id`, `team`, `matches`, `wins`, `ties`, `loses`, `gd`, `g`, `d`, `points`, `nextMatches`) VALUES
-	(1, 'Ейбар', 0, 0, 0, 0, 0, 0, 0, 0, 0),
-	(2, 'Гранада', 0, 0, 0, 0, 0, 0, 0, 0, 0),
+	(1, 'Ейбар', 1, 0, 0, 1, -1, 2, 3, 0, 0),
+	(2, 'Гранада', 1, 1, 0, 0, 1, 3, 2, 3, 0),
 	(3, 'Лас Палмас', 0, 0, 0, 0, 0, 0, 0, 0, 0),
 	(4, 'Алавес', 0, 0, 0, 0, 0, 0, 0, 0, 0),
 	(5, 'Леванте', 0, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -113,6 +189,22 @@ INSERT INTO `la_liga_2` (`id`, `team`, `matches`, `wins`, `ties`, `loses`, `gd`,
 	(21, 'Ибиса', 0, 0, 0, 0, 0, 0, 0, 0, 0),
 	(22, 'Луго', 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
+-- Dumping structure for table bet.premier_league
+CREATE TABLE IF NOT EXISTS `premier_league` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `team` varchar(50) NOT NULL DEFAULT '0',
+  `matches` int(11) DEFAULT 0,
+  `wins` int(11) DEFAULT 0,
+  `ties` int(11) DEFAULT 0,
+  `loses` int(11) DEFAULT 0,
+  `gd` int(11) DEFAULT 0,
+  `g` int(11) DEFAULT 0,
+  `d` int(11) DEFAULT 0,
+  `points` int(11) DEFAULT 0,
+  `nextMatches` int(11) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 -- Dumping data for table bet.premier_league: ~20 rows (approximately)
 INSERT INTO `premier_league` (`id`, `team`, `matches`, `wins`, `ties`, `loses`, `gd`, `g`, `d`, `points`, `nextMatches`) VALUES
 	(1, 'Манчестър Сити', 1, 1, 0, 0, 2, 3, 1, 3, 0),
@@ -123,12 +215,12 @@ INSERT INTO `premier_league` (`id`, `team`, `matches`, `wins`, `ties`, `loses`, 
 	(6, 'Астън Вила', 0, 0, 0, 0, 0, 0, 0, 0, 1),
 	(7, 'Брентфорд', 0, 0, 0, 0, 0, 0, 0, 0, 1),
 	(8, 'Евертън', 1, 1, 0, 0, 4, 4, 0, 3, 0),
-	(9, 'Нотингам Форест', 0, 0, 0, 0, 0, 0, 0, 0, 0),
+	(9, 'Нотингам Форест', 0, 0, 0, 0, 0, 0, 0, 0, 1),
 	(10, 'Борнемут', 1, 1, 0, 0, 3, 4, 1, 3, 0),
 	(11, 'Лестър', 1, 0, 0, 1, -1, 0, 1, 0, 0),
 	(12, 'Саутхямптън', 0, 0, 0, 0, 0, 0, 0, 0, 0),
 	(13, 'Лийдс', 0, 0, 0, 0, 0, 0, 0, 0, 0),
-	(14, 'Уулвърхямптън', 0, 0, 0, 0, 0, 0, 0, 0, 0),
+	(14, 'Уулвърхямптън', 0, 0, 0, 0, 0, 0, 0, 0, 1),
 	(15, 'Фулъм', 1, 1, 0, 0, 4, 4, 0, 3, 0),
 	(16, 'Брайтън', 1, 0, 0, 1, -4, 0, 4, 0, 0),
 	(17, 'Кристъл Палас', 1, 1, 0, 0, 1, 1, 0, 3, 0),
@@ -136,7 +228,22 @@ INSERT INTO `premier_league` (`id`, `team`, `matches`, `wins`, `ties`, `loses`, 
 	(19, 'Ливърпул', 1, 1, 0, 0, 4, 4, 0, 3, 0),
 	(20, 'Челси', 1, 0, 0, 1, -2, 1, 3, 0, 0);
 
--- Dumping data for table bet.schedule: ~9 rows (approximately)
+-- Dumping structure for table bet.schedule
+CREATE TABLE IF NOT EXISTS `schedule` (
+  `index` int(11) NOT NULL AUTO_INCREMENT,
+  `team1` varchar(50) DEFAULT NULL,
+  `team2` varchar(50) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `time` time DEFAULT NULL,
+  `country_id` int(11) DEFAULT NULL,
+  `score1` int(11) DEFAULT NULL,
+  `score2` int(11) DEFAULT NULL,
+  PRIMARY KEY (`index`),
+  KEY `FK_schedule_countries` (`country_id`) USING BTREE,
+  CONSTRAINT `country_id_schedule_countries` FOREIGN KEY (`country_id`) REFERENCES `countries` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=320 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table bet.schedule: ~12 rows (approximately)
 INSERT INTO `schedule` (`index`, `team1`, `team2`, `date`, `time`, `country_id`, `score1`, `score2`) VALUES
 	(300, 'Манчестър Сити', 'Челси', '2023-04-24', '19:43:30', 1, 3, 1),
 	(301, 'Ливърпул', 'Манчестър Юнайтед', '2023-04-24', '19:45:00', 1, 4, 0),
@@ -146,9 +253,26 @@ INSERT INTO `schedule` (`index`, `team1`, `team2`, `date`, `time`, `country_id`,
 	(311, 'Евертън', 'Нюкасъл', '2023-04-25', '19:00:00', 1, 4, 0),
 	(312, 'Фулъм', 'Брайтън', '2023-04-25', '20:00:00', 1, 4, 0),
 	(313, 'Кристъл Палас', 'Лестър', '2023-04-26', '01:41:00', 1, 1, 0),
-	(314, 'Виляреал', 'Севиля', '2023-04-28', '20:00:00', 3, NULL, NULL),
-	(315, 'Астън Вила', 'Брентфорд', '2023-04-28', '20:00:00', 1, NULL, NULL),
-	(316, 'Борнемут', 'Уест Хам', '2023-04-27', '11:42:30', 1, 4, 1);
+	(316, 'Борнемут', 'Уест Хам', '2023-04-27', '11:42:30', 1, 4, 1),
+	(317, 'Ейбар', 'Гранада', '2023-05-20', '18:11:30', 4, 2, 3),
+	(318, 'Астън Вила', 'Брентфорд', '2023-05-23', '20:00:00', 1, NULL, NULL),
+	(319, 'Нотингам Форест', 'Уулвърхямптън', '2023-05-22', '23:59:59', 1, NULL, NULL);
+
+-- Dumping structure for table bet.seria_a
+CREATE TABLE IF NOT EXISTS `seria_a` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `team` varchar(255) DEFAULT NULL,
+  `matches` int(11) DEFAULT 0,
+  `wins` int(11) DEFAULT 0,
+  `ties` int(11) DEFAULT 0,
+  `loses` int(11) DEFAULT 0,
+  `gd` int(11) DEFAULT 0,
+  `g` int(11) DEFAULT 0,
+  `d` int(11) DEFAULT 0,
+  `points` int(11) DEFAULT 0,
+  `nextMatches` int(11) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table bet.seria_a: ~20 rows (approximately)
 INSERT INTO `seria_a` (`id`, `team`, `matches`, `wins`, `ties`, `loses`, `gd`, `g`, `d`, `points`, `nextMatches`) VALUES
@@ -173,6 +297,22 @@ INSERT INTO `seria_a` (`id`, `team`, `matches`, `wins`, `ties`, `loses`, `gd`, `
 	(19, 'Кремонезе', 0, 0, 0, 0, 0, 0, 0, 0, 0),
 	(20, 'Сампдория', 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
+-- Dumping structure for table bet.seria_b
+CREATE TABLE IF NOT EXISTS `seria_b` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `team` varchar(255) DEFAULT NULL,
+  `matches` int(11) DEFAULT 0,
+  `wins` int(11) DEFAULT 0,
+  `ties` int(11) DEFAULT 0,
+  `loses` int(11) DEFAULT 0,
+  `gd` int(11) DEFAULT 0,
+  `g` int(11) DEFAULT 0,
+  `d` int(11) DEFAULT 0,
+  `points` int(11) DEFAULT 0,
+  `nextMatches` int(11) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 -- Dumping data for table bet.seria_b: ~20 rows (approximately)
 INSERT INTO `seria_b` (`id`, `team`, `matches`, `wins`, `ties`, `loses`, `gd`, `g`, `d`, `points`, `nextMatches`) VALUES
 	(1, 'Фрозиноне', 0, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -196,11 +336,25 @@ INSERT INTO `seria_b` (`id`, `team`, `matches`, `wins`, `ties`, `loses`, `gd`, `
 	(19, 'Бреша', 0, 0, 0, 0, 0, 0, 0, 0, 0),
 	(20, 'Беневенто', 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
--- Dumping data for table bet.users: ~3 rows (approximately)
+-- Dumping structure for table bet.users
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL,
+  `ownMoney` int(11) DEFAULT NULL,
+  `moneyInPage` int(11) DEFAULT NULL,
+  `adminId` int(11) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table bet.users: ~5 rows (approximately)
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `ownMoney`, `moneyInPage`, `adminId`) VALUES
-	(8, 'tsvetomir', 'cvetomirmutashki123@gmail.com', 'f68fb29e3debb9b33ecf674c66ccf324', 10, 10, 1),
+	(8, 'tsvetomir', 'cvetomirmutashki123@gmail.com', 'f68fb29e3debb9b33ecf674c66ccf324', 0, 10, 1),
 	(19, 'denkata', 'denkata@gmail.com', 'd252801f58f0d086f39542377cf393dc', 78, 0, 0),
-	(27, 'cecko', 'cecko@abv.bg', '15f5ed0f7ba70f108506a4c47648c286', 10, 30, 0);
+	(27, 'cecko', 'cecko@abv.bg', '15f5ed0f7ba70f108506a4c47648c286', 10, 30, 0),
+	(28, 'uktc123', 'uktc123@gmail.com', 'a37f8cd7f2bbd8aea92b6a51b193d513', 20, 10, 0),
+	(29, '    ', 'a@abv.bg', '628631f07321b22d8c176c200c855e1b', 123, 0, 0);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
